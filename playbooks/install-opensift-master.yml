@@ -1,0 +1,10 @@
+---
+- name: Install openshift master
+  become: true
+  remote_user: ansible-ssh
+  become_method: sudo
+  hosts: openshift-master
+  roles:
+    - role: ansible-client
+    - role: openshift-master
+
