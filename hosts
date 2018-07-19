@@ -61,7 +61,7 @@ openshift_enable_openshift_excluder=False
 openshift_deployment_type=origin
 
 # uncomment the following to enable htpasswd authentication; defaults to AllowAllPasswordIdentityProvider
-openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 # host group for masters
 [masters:vars]
