@@ -1,0 +1,17 @@
+---
+- name: Prepare openshift node 
+  become: true
+  remote_user: root
+#  become_method: sudo
+  hosts: nodes:new_nodes
+  roles:
+    - role: ansible-client
+    - role: openshift-prep
+
+#- name: NFS datastore for persistent storage
+#  remote_user: root
+#  hosts: nfs-servers
+#  roles:
+#    - role: ansible-client
+#    - role: openshift-pv-nfs
+

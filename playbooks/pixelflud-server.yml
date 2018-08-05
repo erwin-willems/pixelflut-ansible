@@ -1,0 +1,21 @@
+---
+- hosts: pixelserver 
+  remote_user: root
+  hosts: pixelserver 
+  tasks: 
+  - name: Open Firewall
+    firewalld:
+      port: "{{ item }}"
+      state: enabled
+      permanent: true
+    with_items:
+      - 1337/udp
+      - 1337/tcp
+
+  - name: Open Firewall perm
+    firewalld:
+      port: "{{ item }}"
+      state: enabled
+    with_items:
+      - 1337/udp
+      - 1337/tcp

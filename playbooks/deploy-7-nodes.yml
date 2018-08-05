@@ -1,0 +1,27 @@
+---
+- name: Prepare openshift node 
+  become: true
+  remote_user: root
+#  become_method: sudo
+  hosts: all
+  roles:
+    - role: ansible-client
+#    - role: openshift-prep
+
+- hosts: all
+  remote_user: root
+  tasks: 
+  - name: Install syslinux
+    yum:
+      name: syslinux
+      state: present
+
+  - name: Deploy nodeinit.sh 
+    get_url:
+      url: https://raw.githubusercontent.com/ews99/pixelflut-nodes/master/scripts/nodeinit.sh?bert=3
+      dest: /root/nodeinit.sh
+      force: yes
+      mode: 0755
+
+#  - name: Run init
+#    shell: /root/nodeinit.sh 
